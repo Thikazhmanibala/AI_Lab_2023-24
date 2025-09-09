@@ -1,53 +1,105 @@
-# Ex.No: 3:Minimax Search
-### DATE: 26/8/2025 
+# Ex.No: 10  Logic Programming –  Simple queries from facts and rules
+### DATE: 7/09/2025                                                                          
 ### REGISTER NUMBER : 212222060277
-4	### AIM:
-5	To write a python program to implement Minimax Search.
-6	 	### Algorithm:
-7	1. Start the program
-8	2. Create the graph by using adjacency list representation
-9	3. Define a function dfs and take the set “visited” is empty
-10	4. Search start with initial node. Check the node is not visited then print the node.
-11	5. For each neighbor node, recursively invoke the minimax search.
-12	6. Call the function by passing arguments visited, graph and starting node.
-13	7. Stop the program.
-14	 	### Program:
-15	# Simple Minimax Algorithm Implementation
+### AIM: 
+To write a prolog program to find the answer of query. 
+###  Algorithm:
+ Step 1: Start the program <br> 
+ Step 2: Convert the sentence into First order Logic  <br> 
+ Step 3:  Convert the sentence into Horn clause form  <br> 
+ Step 4: Add rules and predicates in a program   <br> 
+ Step 5:  Pass the query to program. <br> 
+ Step 6: Prolog interpreter shows the output and return answer. <br> 
+ Step 8:  Stop the program.
+### Program:
+### Task 1:
+Construct the FOL representation for the following sentences <br> 
+1.	John likes all kinds of food.  <br> 
+2.	Apples are food.  <br> 
+3.	Chicken is a food.  <br> 
+4.	Sue eats everything Bill eats. <br> 
+5.	 Bill eats peanuts  <br> 
+   Convert into clause form and Prove that John like Apple by using Prolog. <br> 
+### Program:
+% --- Knowledge Base ---
 
-def minimax(depth, node_index, is_maximizing, scores, max_depth):
-    # If we reach the leaf node, return its value
-    if depth == max_depth:
-        return scores[node_index]
+% Rule: John likes all kinds of food
+likes(john, X) :-
+    food(X).
 
-    if is_maximizing:
-        best = float("-inf")
+% Facts: foods
+food(apple).
+food(chicken).
 
-        # Explore left and right child
-        best = max(best, minimax(depth + 1, node_index * 2, False, scores, max_depth))
-        best = max(best, minimax(depth + 1, node_index * 2 + 1, False, scores, max_depth))
+% Rule: Sue eats everything Bill eats
+eats(sue, X) :-
+    eats(bill, X).
 
-        return best
-    else:
-        best = float("inf")
+% Fact: Bill eats peanuts
+eats(bill, peanuts).
 
-        # Explore left and right child
-        best = min(best, minimax(depth + 1, node_index * 2, True, scores, max_depth))
-        best = min(best, minimax(depth + 1, node_index * 2 + 1, True, scores, max_depth))
-
-        return best
+### Output:
+<img width="1920" height="1080" alt="Screenshot 2025-09-06 093826" src="https://github.com/user-attachments/assets/7d732f25-1f80-425a-8dab-e0d6584fe7b0" />
 
 
-# Example game tree with leaf values
-scores = [3, 5, 2, 9]  # Values at leaf nodes
-max_depth = 2          # Since tree height = log2(len(scores))
+### Task 2:
+Consider the following facts and represent them in predicate form: <br>              
+1.	Steve likes easy courses. <br> 
+2.	Science courses are hard. <br> 
+3. All the courses in Have fun department are easy <br> 
+4. BK301 is Have fun department course.<br> 
+Convert the facts in predicate form to clauses and then prove by resolution: “Steve likes BK301 course”<br> 
 
-print("The optimal value is:", minimax(0, 0, True, scores, max_depth))
+### Program:
+% courses.pl
 
+% Steve likes all easy courses
+likes(steve, X) :- easy(X).
+
+% Science courses are hard (included for completeness)
+hard(X) :- science(X).
+
+% All courses in "Have fun" dept are easy
+easy(X) :- have_fun_course(X).
+
+% BK301 is a "Have fun" department course
+have_fun_course(bk301).
 
 
 ### Output:
-https://onecompiler.com/python/43uteze2p
+<img width="1920" height="1080" alt="Screenshot 2025-09-06 094419" src="https://github.com/user-attachments/assets/86e8b808-e51c-45b6-bc88-f8ac313271bb" />
+
+
+### Task 3:
+Consider the statement <br> 
+“This is a crime for an American to sell weapons to hostile nations. The Nano , enemy of America has some missiles and its missiles were sold it by Colonal West who is an American” <br> 
+Convert to Clause form and prove west is criminal by using Prolog.<br> 
+### Program:
+% Rule: It's a crime for an American to sell weapons to hostile nations
+criminal(X) :-
+    american(X),
+    weapon(Y),
+    sells(X, Y, Z),
+    hostile(Z).
+
+% Facts
+american(west).
+
+enemy(nono, america).
+hostile(nono).
+
+missile(m1).
+owns(nono, m1).
+
+% All missiles are weapons
+weapon(X) :- missile(X).
+
+% Sales fact
+sells(west, m1, nono).
+
+### Output:
+<img width="1920" height="1080" alt="Screenshot 2025-09-06 094644" src="https://github.com/user-attachments/assets/63690ffc-88c5-4936-9a4e-98afceae8c95" />
+
 
 ### Result:
-Thus the depth first search order was found sucessfully.
-
+Thus the prolog programs were executed successfully and the answer of query was found.
