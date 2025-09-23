@@ -1,6 +1,6 @@
 # Ex.No: 4   Implementation of Alpha Beta Pruning 
-### DATE:                                                                            
-### REGISTER NUMBER : 
+### DATE: 23/09/25                                                                           
+### REGISTER NUMBER : 212222060277
 ### AIM: 
 Write a Alpha beta pruning algorithm to find the optimal value of MAX Player from the given graph.
 ### Steps:
@@ -52,10 +52,10 @@ def minimax(depth, nodeIndex, maximizingPlayer,
         return best
 values = [3, 5, 6, 9, 1, 2, 0, -1] 
 print("The optimal value is :", minimax(0, 0, True, values, MIN, MAX))
-Output:
+### Output:
 <img width="1808" height="876" alt="Screenshot 2025-09-23 094304" src="https://github.com/user-attachments/assets/cc4df520-749d-4454-b0ee-8995fc8850eb" />
 
-Result:
+### Result:
 Thus the best score of max player was found using Alpha Beta Pruning.
 
 
@@ -63,15 +63,3 @@ Thus the best score of max player was found using Alpha Beta Pruning.
 
 
 
-
-
-
-
-
-
-### Output:
-
-
-
-### Result:
-Thus the best score of max player was found using Alpha Beta Pruning.
