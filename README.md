@@ -19,8 +19,10 @@ Cis A-1,
 Al Lab 2073 24 Nob
 factorial (C,D),
 B is AD.
+
 ### Output:
 <img width="565" height="166" alt="image" src="https://github.com/user-attachments/assets/5d8e1f48-f210-4edb-a331-64fd92ea76aa" />
+
 ### Result:
 Thus the factorial of given number was found by logic programming.
 
