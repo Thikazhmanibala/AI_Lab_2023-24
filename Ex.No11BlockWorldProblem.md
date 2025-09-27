@@ -43,14 +43,17 @@ Step 10 : Obtain the plan for given problem.<br>
 :precondition (and (on ?ob ?underob) (clear ?ob) (arm-empty))
 :effect (and (holding ?ob) (clear ?underob)
 (not (on ?ob ?underob)) (not (clear ?ob)) (not (arm-empty)))))
+
 ### Input 
 (define (problem pb1)
 (:domain blocksworld)
 (:objects a b)
 (:init (on-table a) (on-table b) (clear a) (clear b) (arm-empty))
 (:goal (and (on a b))))
+
 ### Output/Plan:
 <img width="1853" height="893" alt="Screenshot 2025-09-27 090033" src="https://github.com/user-attachments/assets/42159698-5d7e-4816-9a59-b5d2e3ba645a" />
 <img width="527" height="602" alt="Screenshot 2025-09-27 090043" src="https://github.com/user-attachments/assets/9522bd18-45c4-4df0-a32f-672410661651" />
+
 ### Result:
 Thus the plan was found for the initial and goal state of block world problem.
